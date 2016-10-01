@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.math.BigDecimal;
 
 public class PayPal extends ReactContextBaseJavaModule {
-  private final int paymentIntentRequestCode;
+  private final int paymentIntentRequestCode = 9;
 
   private static final String ERROR_USER_CANCELLED = "USER_CANCELLED";
   private static final String ERROR_INVALID_CONFIG = "INVALID_CONFIG";
@@ -33,11 +33,8 @@ public class PayPal extends ReactContextBaseJavaModule {
   private Context activityContext;
   private Activity currentActivity;
 
-  public PayPal(ReactApplicationContext reactContext, Context activityContext, int requestCode) {
+  public PayPal(ReactApplicationContext reactContext) {
     super(reactContext);
-    this.activityContext = activityContext;
-    this.currentActivity = (Activity)activityContext;
-    this.paymentIntentRequestCode = requestCode;
   }
 
   @Override
@@ -65,6 +62,8 @@ public class PayPal extends ReactContextBaseJavaModule {
   ) {
     this.successCallback = successCallback;
     this.errorCallback = errorCallback;
+    this.currentActivity = getCurrentActivity();
+    this.activityContext = this.currentActivity.getBaseContext();
 
     final String environment = payPalParameters.getString("environment");
     final String clientId = payPalParameters.getString("clientId");
