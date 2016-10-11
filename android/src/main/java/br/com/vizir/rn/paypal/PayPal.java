@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.math.BigDecimal;
 
-public class PayPal extends ReactContextBaseJavaModule {
+public class PayPal extends ReactContextBaseJavaModule implements ActivityEventListener {
   private final int paymentIntentRequestCode = 9;
 
   private static final String ERROR_USER_CANCELLED = "USER_CANCELLED";
@@ -35,6 +35,7 @@ public class PayPal extends ReactContextBaseJavaModule {
 
   public PayPal(ReactApplicationContext reactContext) {
     super(reactContext);
+    reactContext.addActivityEventListener(this);
   }
 
   @Override
@@ -114,4 +115,11 @@ public class PayPal extends ReactContextBaseJavaModule {
 
     currentActivity.stopService(new Intent(currentActivity, PayPalService.class));
   }
+
+  @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+      if (requestCode == 9) {
+        this.handleActivityResult(requestCode, resultCode, data);
+      }
+    }
 }
