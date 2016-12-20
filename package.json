@@ -21,7 +21,7 @@
     "Timo Uhlmann (http://github.com/amiuhle)"
   ],
   "peerDependencies": {
-    "react-native": ">=0.18.0"
+    "react-native": ">=0.39.0"
   },
   "license": "MIT",
   "bugs": {
