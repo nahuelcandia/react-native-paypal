@@ -118,7 +118,7 @@ public class PayPal extends ReactContextBaseJavaModule implements ActivityEventL
   }
 
   @Override
-  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+  public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
     if (requestCode == 9) {
         this.handleActivityResult(requestCode, resultCode, data);
     }
