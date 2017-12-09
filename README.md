@@ -96,6 +96,13 @@ react-native link react-native-paypal
 ```
 
 ## Special Thanks
-Former Shovel Apps Dev Team: @schalela @tmarcote @gmaliandi @pato12
+
+Former Shovel Apps Dev Team:
+
+- [Samuel Chalela](https://github.com/schalela)
+- [Tomas Marcote](https://github.com/tmarcote)
+- [Guido Maliandi](https://github.com/gmaliandi)
+- [Patricio Perez](https://github.com/pato12)
+ 
 The Android portion of this library was originally built by https://github.com/Vizir for https://github.com/Vizir/react-native-paypal. The merging of the API in order to provide cross platform support was done almost entirely by https://github.com/amiuhle.
 The iOS portion was built by https://github.com/MattFoley for https://github.com/MattFoley/react-native-paypal
